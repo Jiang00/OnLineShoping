@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40">
+
+        <CheckBox
+            android:id="@+id/cb_store_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_store_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_8"
+            android:text="乐购乐购"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/cb_store_all"
+            app:layout_constraintStart_toEndOf="@id/cb_store_all"
+            app:layout_constraintTop_toTopOf="@+id/cb_store_all" />
+
+        <ImageView
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_marginStart="@dimen/dp_4"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="@+id/cb_store_all"
+            app:layout_constraintStart_toEndOf="@id/tv_store_name"
+            app:layout_constraintTop_toTopOf="@+id/cb_store_all" />
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_commodity_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/cl_title" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_money"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_commodity_list">
+
+        <TextView
+            android:id="@+id/tv_discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_8"
+            android:text="优惠20元"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_all_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_8"
+            android:text="提供20元"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/t_submit"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/t_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_4"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

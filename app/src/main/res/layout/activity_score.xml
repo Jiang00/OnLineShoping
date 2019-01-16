@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ScoreActivity">
+
+    <com.seocoo.onlineshoping.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bar_right_tv_visible="false"
+        app:is_edit="false" />
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_80"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="@dimen/dp_0_5"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_20"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:background="@color/bar_grey"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias=".3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_store_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4.8"
+            android:textSize="@dimen/sp_24"
+            app:layout_constraintBottom_toTopOf="@+id/tv_store_score_m"
+            app:layout_constraintEnd_toEndOf="@id/view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tv_store_score_m"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="商家评分"
+            android:textSize="@dimen/sp_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/tv_store_score"
+            app:layout_constraintStart_toStartOf="@id/tv_store_score"
+            app:layout_constraintTop_toBottomOf="@id/tv_store_score" />
+
+        <com.iarcuschin.simpleratingbar.SimpleRatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/view"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srb_borderColor="@color/white"
+            app:srb_fillColor="@color/colorAccent"
+            app:srb_isIndicator="false"
+            app:srb_numberOfStars="5"
+            app:srb_rating="4.5"
+            app:srb_starBackgroundColor="@color/cp_colorAccent"
+            app:srb_starSize="40dp"
+            app:srb_stepSize="0.1" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <View
+        android:id="@+id/view_2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_8"
+        android:background="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <Button
+        android:id="@+id/bt_score_all"
+        android:layout_width="@dimen/dp_70"
+        android:layout_height="@dimen/dp_36"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_16"
+        android:background="@color/colorAccent"
+        android:text="全部222"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_2" />
+
+    <Button
+        android:id="@+id/bt_score_good"
+        android:layout_width="@dimen/dp_70"
+        android:layout_height="@dimen/dp_36"
+        android:layout_marginStart="@dimen/dp_16"
+        android:background="@color/colorAccent"
+        android:text="好评"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintStart_toEndOf="@id/bt_score_all"
+        app:layout_constraintTop_toTopOf="@id/bt_score_all" />
+
+    <Button
+        android:id="@+id/bt_score_bad"
+        android:layout_width="@dimen/dp_70"
+        android:layout_height="@dimen/dp_36"
+        android:layout_marginStart="@dimen/dp_16"
+        android:background="@color/colorAccent"
+        android:text="差评"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintStart_toEndOf="@id/bt_score_good"
+        app:layout_constraintTop_toTopOf="@id/bt_score_good" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_score_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_score_all" />
+</android.support.constraint.ConstraintLayout>

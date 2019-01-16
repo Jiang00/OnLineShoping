@@ -1,0 +1,22 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <!--<style name="AppTheme" parent="Theme.AppCompat.Light">-->
+        <!--&lt;!&ndash; Customize your theme here. &ndash;&gt;-->
+        <!--<item name="colorPrimary">@color/cp_colorPrimary</item>-->
+        <!--<item name="colorPrimaryDark">@color/cp_colorPrimaryDark</item>-->
+        <!--<item name="colorAccent">@color/cp_colorAccent</item>-->
+    <!--</style>-->
+
+    <style name="CityPickerStyle" parent="AlertDialog.AppCompat">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="DefaultCityPickerAnimation" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/cp_push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/cp_push_bottom_out</item>
+    </style>
+
+
+</resources>

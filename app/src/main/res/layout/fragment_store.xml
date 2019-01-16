@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+    <com.seocoo.onlineshoping.widget.StoreToolbar
+        android:id="@+id/store__tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <cn.bingoogolapple.bgabanner.BGABanner
+        android:id="@+id/store_banner"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:banner_indicatorGravity="bottom|center_horizontal"
+        app:banner_pageChangeDuration="1000"
+        app:banner_pointAutoPlayInterval="1000"
+        app:banner_pointContainerBackground="@color/transparent"
+        app:banner_pointTopBottomMargin="@dimen/dp_5"
+        app:banner_tipTextColor="@color/transparent"
+        app:layout_constraintDimensionRatio="1000:500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/store__tool_bar" />
+
+    <TextView
+        android:id="@+id/tv_nearbt_store"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:text="附近的店"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/store_banner" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_nearbt_store"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nearbt_store" />
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_shop_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_16"
+        android:src="@mipmap/ic_launcher"
+        app:borderWidth="0dp"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="@color/white" />
+</android.support.constraint.ConstraintLayout>

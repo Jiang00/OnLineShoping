@@ -1,0 +1,106 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'ceshi.keystore'
+            keyPassword '123456'
+            storeFile file('ceshi.keystore')
+            storePassword '123456'
+        }
+    }
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.seocoo.onlineshoping"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
+        ndk {
+            //选择要添加的对应 cpu 类型的 .so 库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64', 'mips', 'mips64'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+            signingConfig signingConfigs.config
+        }
+        debug {
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //base
+    implementation rootProject.ext.dependencies.appcompat
+    implementation rootProject.ext.dependencies.constraint
+    implementation rootProject.ext.dependencies.recyclerview
+    implementation rootProject.ext.dependencies.cardview
+    implementation rootProject.ext.dependencies.design
+    implementation rootProject.ext.dependencies.constraint_layout
+    //butter knife
+    implementation rootProject.ext.dependencies.butterknife
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    annotationProcessor rootProject.ext.dependencies.butterknife_compiler
+    //dagger
+    implementation rootProject.ext.dependencies.dagger
+    annotationProcessor rootProject.ext.dependencies.dagger_compiler
+    //http
+    implementation rootProject.ext.dependencies.retrofit
+    implementation rootProject.ext.dependencies.converter_gson
+    implementation rootProject.ext.dependencies.adapter_rxjava
+    implementation rootProject.ext.dependencies.okhttp
+    implementation rootProject.ext.dependencies.logging_interceptor
+    //glide
+    implementation rootProject.ext.dependencies.glide
+    annotationProcessor rootProject.ext.dependencies.glide_compiler
+    //  rx
+    implementation rootProject.ext.dependencies.rxjava
+    implementation rootProject.ext.dependencies.rxandroid
+    implementation rootProject.ext.dependencies.rxbinding
+    implementation rootProject.ext.dependencies.rxpermissions
+    //canary
+    debugImplementation rootProject.ext.dependencies.leakcanary_android
+    releaseImplementation rootProject.ext.dependencies.leakcanary_android_no_op
+    //utils
+    implementation rootProject.ext.dependencies.klog
+    implementation rootProject.ext.dependencies.immersionbar
+    implementation rootProject.ext.dependencies.zxing
+    implementation rootProject.ext.dependencies.pictureSelector
+    implementation rootProject.ext.dependencies.toasty
+    implementation rootProject.ext.dependencies.okdownload
+    implementation rootProject.ext.dependencies.eventbus
+    //other
+    implementation rootProject.ext.dependencies.brvah
+    implementation rootProject.ext.dependencies.circleimageview
+    implementation rootProject.ext.dependencies.switchbutton
+    implementation rootProject.ext.dependencies.flycoTabLayout
+    implementation rootProject.ext.dependencies.smartRefreshLayout
+    implementation rootProject.ext.dependencies.smartRefreshHeader
+    implementation rootProject.ext.dependencies.mpAndroidChart
+    implementation rootProject.ext.dependencies.pickerView
+    implementation rootProject.ext.dependencies.agentweb
+    implementation rootProject.ext.dependencies.roundedimageview
+    implementation rootProject.ext.dependencies.bgabanner
+    implementation rootProject.ext.dependencies.ratingbar
+    implementation project(":citypicker")//城市选择
+    //JPush
+    //    implementation rootProject.ext.dependencies.jpush
+    //    implementation rootProject.ext.dependencies.jcore
+}

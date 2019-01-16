@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--标题栏-->
+    <declare-styleable name="Toolbar">
+        <!--左边按钮-->
+        <attr name="bar_left_iv_visible" format="boolean" />
+        <attr name="bar_left_iv_resource" format="reference" />
+        <!--左边文字-->
+        <attr name="bar_left_tv_text" format="reference|string" />
+        <attr name="bar_left_tv_color" format="reference|color" />
+        <attr name="bar_left_tv_size" format="dimension" />
+        <!--中间标题-->
+        <attr name="bar_mid_tv_text" format="reference|string" />
+        <attr name="bar_mid_tv_color" format="reference|color" />
+        <attr name="bar_mid_tv_size" format="dimension" />
+        <!--右边图标-->
+        <attr name="bar_right_iv_visible" format="boolean" />
+        <attr name="bar_right_iv_resource" format="reference" />
+        <!--右边文字-->
+        <attr name="bar_right_tv_visible" format="boolean" />
+        <attr name="bar_right_tv_text" format="reference|string" />
+        <attr name="bar_right_tv_color" format="reference|color" />
+        <attr name="bar_right_tv_size" format="dimension" />
+        <!--背景-->
+        <attr name="bar_background" format="reference|color" />
+        <attr name="bar_background_alpha" format="float" />
+        <!--顶部状态栏是否可见 刘海屏适配-->
+        <attr name="bar_top_visible" format="boolean" />
+        <!--是否显示输入框-->
+        <attr name="is_edit" format="boolean" />
+        <attr name="edit_hint_color" format="reference|color" />
+        <attr name="edit_text_color" format="reference|color" />
+        <attr name="edit_hint_text" format="reference|string" />
+        <attr name="edit_background" format="reference|color" />
+        <!--line-->
+        <attr name="line_color" format="reference|color" />
+    </declare-styleable>
+</resources>

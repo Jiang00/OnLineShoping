@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/ll_toolbar_root"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/blue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:id="@+id/view_toolbar_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_20"
+            android:visibility="gone" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_50">
+
+            <ImageView
+                android:id="@+id/iv_toolbar_left"
+                android:layout_width="@dimen/dp_29"
+                android:layout_height="@dimen/dp_37"
+                android:layout_marginStart="@dimen/dp_10"
+                android:padding="@dimen/dp_10"
+                android:src="@drawable/ic_toolbar_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_toolbar_left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp_10"
+                android:gravity="center"
+                android:text="合肥市"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_toolbar_left"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cl_edit"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_30"
+                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginRight="@dimen/dp_16"
+                android:background="@drawable/shape_white_round"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tv_toolbar_right"
+                app:layout_constraintStart_toEndOf="@id/tv_toolbar_left"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <EditText
+                    android:id="@+id/et_store_edit"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="@dimen/dp_16"
+                    android:background="@color/transparent"
+                    android:hint="请输入"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="@dimen/sp_12"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/iv_store_search"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_store_search"
+                    android:layout_width="@dimen/dp_16"
+                    android:layout_height="@dimen/dp_16"
+                    android:layout_marginEnd="@dimen/dp_16"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_toolbar_middle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textSize="@dimen/sp_16"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_toolbar_right"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:gravity="center"
+                android:text="quxiao"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp_14"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_1"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

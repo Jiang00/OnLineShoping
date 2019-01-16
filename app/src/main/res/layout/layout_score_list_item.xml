@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_score_item_icon"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_25"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/iv_score_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_16"
+        android:text="用户名字"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintStart_toEndOf="@id/iv_score_item_icon"
+        app:layout_constraintTop_toTopOf="@id/iv_score_item_icon" />
+
+    <TextView
+        android:id="@+id/iv_score_item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:text="2019-1-10"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/iv_score_item_icon" />
+
+    <TextView
+        android:id="@+id/iv_score_item_function"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_4"
+        android:text="评分"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintStart_toStartOf="@id/iv_score_item_name"
+        app:layout_constraintTop_toBottomOf="@id/iv_score_item_name" />
+
+    <com.iarcuschin.simpleratingbar.SimpleRatingBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_score_item_function"
+        app:layout_constraintStart_toEndOf="@id/iv_score_item_function"
+        app:layout_constraintTop_toTopOf="@id/iv_score_item_function"
+        app:srb_borderColor="@color/white"
+        app:srb_fillColor="@color/colorAccent"
+        app:srb_isIndicator="false"
+        app:srb_numberOfStars="5"
+        app:srb_rating="4.5"
+        app:srb_starBackgroundColor="@color/cp_colorAccent"
+        app:srb_starSize="@dimen/dp_12"
+        app:srb_stepSize="0.1" />
+
+    <TextView
+        android:id="@+id/iv_score_item_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_4"
+        android:layout_marginEnd="@dimen/dp_12"
+        android:layout_marginBottom="@dimen/dp_12"
+        android:text="abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/iv_score_item_name"
+        app:layout_constraintTop_toBottomOf="@id/iv_score_item_function" />
+
+</android.support.constraint.ConstraintLayout>

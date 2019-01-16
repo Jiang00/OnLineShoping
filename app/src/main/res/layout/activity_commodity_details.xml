@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.CommodityDetailsActivity">
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nv_commodity"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/v_di"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f1f1f1">
+
+            <cn.bingoogolapple.bgabanner.BGABanner
+                android:id="@+id/bga_commodity_image"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:src="@mipmap/ic_launcher"
+                app:banner_pageChangeDuration="1000"
+                app:banner_pointAutoPlayInterval="1000"
+                app:banner_pointContainerBackground="@color/transparent"
+                app:banner_pointTopBottomMargin="@dimen/dp_5"
+                app:banner_tipTextColor="@color/transparent"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cl_commodity_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/bga_commodity_image">
+
+                <TextView
+                    android:id="@+id/tv_commodity_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:layout_marginEnd="@dimen/dp_16"
+                    android:text="维达抽纸维达抽纸维达抽纸维达抽纸维达抽纸维达抽纸维达抽纸维达抽纸维达抽纸"
+                    android:textSize="@dimen/sp_16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_commodity_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_12"
+                    android:text="会员价:20"
+                    android:textSize="@dimen/sp_12"
+                    app:layout_constraintStart_toStartOf="@id/tv_commodity_name"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_commodity_name" />
+
+                <TextView
+                    android:id="@+id/tv_commodity_money_before"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:layout_marginBottom="@dimen/dp_8"
+                    android:text="原价:20"
+                    android:textSize="@dimen/sp_12"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/tv_commodity_name"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_commodity_money" />
+
+                <Button
+                    android:id="@+id/bt_add_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    android:layout_marginBottom="@dimen/dp_8"
+                    android:background="@drawable/shape_check"
+                    android:text="加入购物车"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cl_score"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_60"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/cl_commodity_1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:text="商品评价"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_score_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp_6"
+                    android:text="5条评价"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/iv_score"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_score"
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_20"
+                    android:layout_marginEnd="@dimen/dp_16"
+                    android:src="@mipmap/ic_launcher"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/cl_commodity_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:background="@color/white"
+                app:layout_constraintTop_toBottomOf="@+id/cl_score">
+
+                <TextView
+                    android:id="@+id/tv_info_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_20"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:text="商品信息"
+                    android:textSize="@dimen/sp_16"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_info_norm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:text="规格:108*3"
+                    android:textSize="@dimen/sp_14"
+                    app:layout_constraintStart_toStartOf="@id/tv_info_title"
+                    app:layout_constraintTop_toBottomOf="@id/tv_info_title" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_4"
+                    android:text="单位:一提(3包装)"
+                    android:textSize="@dimen/sp_14"
+                    app:layout_constraintStart_toStartOf="@id/tv_info_norm"
+                    app:layout_constraintTop_toBottomOf="@id/tv_info_norm" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_other_commodity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                app:layout_constraintTop_toBottomOf="@+id/cl_commodity_info" />
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <com.seocoo.onlineshoping.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bar_background_alpha="0"
+        app:bar_left_tv_color="@color/white"
+        app:is_edit="false" />
+
+    <View
+        android:id="@+id/v_di"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:background="@color/bar_grey"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/iv_store_cart"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginStart="@dimen/dp_18"
+        android:layout_marginBottom="@dimen/dp_4"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:text="188元"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/bt_store_order"
+        app:layout_constraintStart_toEndOf="@id/iv_store_cart"
+        app:layout_constraintTop_toTopOf="@+id/bt_store_order" />
+
+    <Button
+        android:id="@+id/bt_store_order"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_40"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="起送20元"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</android.support.constraint.ConstraintLayout>

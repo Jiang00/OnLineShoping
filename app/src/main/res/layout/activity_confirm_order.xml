@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ConfirmOrderActivity">
+
+    <com.seocoo.onlineshoping.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bar_right_tv_visible="false"
+        app:is_edit="false"
+        app:line_color="@color/colorAccent" />
+
+    <Button
+        android:id="@+id/bt_delivery_merchant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="商家配送"
+        app:layout_constraintEnd_toStartOf="@id/bt_delivery_personal"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <Button
+        android:id="@+id/bt_delivery_personal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="用户自提"
+        app:layout_constraintBottom_toBottomOf="@+id/bt_delivery_merchant"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/bt_delivery_merchant"
+        app:layout_constraintTop_toTopOf="@+id/bt_delivery_merchant" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/cl_delivery"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/bt_delivery_merchant">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/group_no_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_no_address"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp_40"
+                android:layout_marginStart="@dimen/dp_40"
+                android:gravity="center_vertical"
+                android:text="没有收货地址"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_no_address"
+                android:layout_width="@dimen/dp_12"
+                android:layout_height="@dimen/dp_12"
+                android:layout_marginEnd="@dimen/dp_12"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_no_address"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_no_address" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/group_has_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_address_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:gravity="center_vertical"
+                android:text="订单配送至"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_address_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_4"
+                android:background="@color/colorAccent"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dp_1"
+                android:text="公司"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_address_title"
+                app:layout_constraintStart_toEndOf="@id/tv_address_title"
+                app:layout_constraintTop_toTopOf="@+id/tv_address_title" />
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:gravity="center_vertical"
+                android:text="合肥市庐阳区"
+                app:layout_constraintStart_toStartOf="@id/tv_address_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_address_title" />
+
+            <TextView
+                android:id="@+id/tv_contact_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_4"
+                android:gravity="center_vertical"
+                android:text="讲"
+                app:layout_constraintStart_toStartOf="@id/tv_address_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_address" />
+
+            <TextView
+                android:id="@+id/tv_contact_tel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:gravity="center_vertical"
+                android:text="17333197130"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_contact_name"
+                app:layout_constraintStart_toEndOf="@id/tv_contact_name"
+                app:layout_constraintTop_toTopOf="@+id/tv_contact_name" />
+
+            <ImageView
+                android:id="@+id/iv_address"
+                android:layout_width="@dimen/dp_20"
+                android:layout_height="@dimen/dp_20"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_contact_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_address_title" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/tv_address_personal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_8"
+                android:gravity="center_vertical"
+                android:text="提货地址"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_address_personal_n"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:gravity="center_vertical"
+                android:text="合肥市庐阳区(市府广场)合肥市庐阳区合肥市庐阳区合肥市庐阳区合肥市庐阳区"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_address_personal"
+                app:layout_constraintTop_toTopOf="@id/tv_address_personal" />
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0_5"
+                android:layout_marginTop="@dimen/dp_16"
+                android:background="@color/colorAccent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_address_personal_n" />
+
+            <TextView
+                android:id="@+id/tv_address_personal_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:gravity="center_vertical"
+                android:text="提货地址"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line1" />
+
+            <EditText
+                android:id="@+id/et_address_personal_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:text="合肥市庐阳区"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_address_personal_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_address_personal_name"
+                app:layout_constraintTop_toTopOf="@id/tv_address_personal_name" />
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_0_5"
+                android:layout_marginTop="@dimen/dp_16"
+                android:background="@color/colorAccent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_address_personal_name" />
+
+            <TextView
+                android:id="@+id/tv_address_personal_tel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:gravity="center_vertical"
+                android:text="提货地址"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line2" />
+
+            <EditText
+                android:id="@+id/et_address_personal_tel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:text="合肥市庐阳区"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_address_personal_tel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_address_personal_tel"
+                app:layout_constraintTop_toTopOf="@id/tv_address_personal_tel" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <View
+        android:id="@+id/line3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_8"
+        android:background="@mipmap/ic_launcher"
+        app:layout_constraintTop_toBottomOf="@+id/cl_delivery" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/group_sub"
+        app:layout_constraintTop_toBottomOf="@+id/line3">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/tv_store_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="乐从超市"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_commodity_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tv_store_name" />
+
+            <TextView
+                android:id="@+id/tv_delivery_fee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="配送费"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_commodity_list" />
+
+            <TextView
+                android:id="@+id/tv_delivery_fee_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:text="5元"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_delivery_fee"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_delivery_fee" />
+
+            <TextView
+                android:id="@+id/tv_delivery_remark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="订单备注"
+                android:textSize="@dimen/sp_16"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_delivery_fee" />
+
+            <EditText
+                android:id="@+id/et_delivery_remark_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:background="@null"
+                android:hint="请输入备注"
+                android:textSize="@dimen/sp_12"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_delivery_remark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_delivery_remark"
+                app:layout_constraintTop_toTopOf="@+id/tv_delivery_remark" />
+
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.constraint.Group
+        android:id="@+id/group_sub"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nv" />
+
+    <TextView
+        android:id="@+id/tv_money_discount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_8"
+        android:text="会员优惠20元"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/group_sub"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/group_sub" />
+
+    <TextView
+        android:id="@+id/tv_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="合计20元"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/group_sub"
+        app:layout_constraintEnd_toStartOf="@id/bt_submit"
+        app:layout_constraintTop_toTopOf="@+id/group_sub" />
+
+    <Button
+        android:id="@+id/bt_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/dp_8"
+        android:background="@color/white"
+        android:text="提交订单"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/group_sub"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/group_sub" />
+</android.support.constraint.ConstraintLayout>

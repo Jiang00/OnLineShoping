@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">OnLineShoping</string>
+
+    <string name="main_home">首页</string>
+    <string name="main_store">便利商店</string>
+    <string name="main_rebate">返利商城</string>
+    <string name="main_integral">积分缴费</string>
+    <string name="main_mine">我的</string>
+    <string name="title_activity_confirm_order">ConfirmOrderActivity</string>
+</resources>

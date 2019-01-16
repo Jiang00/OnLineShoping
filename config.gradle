@@ -1,0 +1,87 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+ext {
+    android = [
+            compileSdkVersion: 28,
+            minSdkVersion    : 19,
+            targetSdkVersion : 28,
+            versionCode      : 1,
+            versionName      : "1.0.0",
+    ]
+    dependencies = [
+            //  base
+            constraint              : 'com.android.support.constraint:constraint-layout:1.1.3',
+            appcompat               : 'com.android.support:appcompat-v7:28.0.0',
+            recyclerview            : 'com.android.support:recyclerview-v7:28.0.0',
+            cardview                : 'com.android.support:cardview-v7:28.0.0',
+            design                  : 'com.android.support:design:28.0.0',
+            constraint_layout       : 'com.android.support.constraint:constraint-layout:1.1.3',
+            //  butter knife
+            butterknife             : 'com.jakewharton:butterknife:8.8.1',
+            butterknife_compiler    : 'com.jakewharton:butterknife-compiler:8.8.1',
+            //http
+            retrofit                : 'com.squareup.retrofit2:retrofit:2.5.0',
+            //配合使用
+            converter_gson          : 'com.squareup.retrofit2:converter-gson:2.5.0',
+            adapter_rxjava          : 'com.squareup.retrofit2:adapter-rxjava2:2.5.0',
+            okhttp                  : 'com.squareup.okhttp3:okhttp:3.12.0',
+            logging_interceptor     : 'com.squareup.okhttp3:logging-interceptor:3.12.0',
+            //glide
+            glide                   : 'com.github.bumptech.glide:glide:4.8.0',
+            glide_compiler          : 'com.github.bumptech.glide:compiler:4.8.0',
+            //dagger
+            dagger                  : 'com.google.dagger:dagger:2.19',
+            dagger_compiler         : 'com.google.dagger:dagger-compiler:2.19',
+            //RxJava
+            rxjava                  : 'io.reactivex.rxjava2:rxjava:2.2.4',
+            rxandroid               : 'io.reactivex.rxjava2:rxandroid:2.1.0',
+            //Rxjava事件捆绑
+            rxbinding               : 'com.jakewharton.rxbinding2:rxbinding:2.2.0',
+            //Rxjava权限处理
+            rxpermissions           : 'com.github.tbruyelle:rxpermissions:0.10.2',
+            //leak canary内存泄漏
+            leakcanary_android      : 'com.squareup.leakcanary:leakcanary-android:1.6.2',
+            leakcanary_android_no_op: 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2',
+            //utils
+            klog                    : 'com.github.zhaokaiqiang.klog:library:1.6.0',
+            //状态栏
+            immersionbar            : 'com.gyf.immersionbar:immersionbar:2.3.3-beta09',
+            //二维码
+            zxing                   : 'cn.bingoogolapple:bga-qrcode-zxing:1.3.6',
+            //图片选择
+            pictureSelector         : 'com.github.goweii:PictureSelector:v2.3.1',
+            //吐司
+            toasty                  : 'com.github.GrenderG:Toasty:1.3.1',
+            //下载文件
+            okdownload              : 'com.liulishuo.okdownload:okdownload:1.0.5',
+            //事件
+            eventbus                : 'org.greenrobot:eventbus:3.1.1',
+            //recycleview
+            brvah                   : 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.44',
+            //圆角图片
+            circleimageview         : 'de.hdodenhof:circleimageview:2.2.0',
+            //SwitchButton切换按钮
+            switchbutton            : 'com.kyleduo.switchbutton:library:2.0.0',
+            //tablayout
+            flycoTabLayout          : 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar',
+            //刷新上拉下拉
+            smartRefreshLayout      : 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-18',
+            smartRefreshHeader      : 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-18',
+            //图表
+            mpAndroidChart          : 'com.github.PhilJay:MPAndroidChart:v3.0.3',
+            // 时间选择器
+            pickerView              : 'com.contrarywind:Android-PickerView:4.1.6',
+            //webView框架
+            agentweb                : 'com.just.agentweb:agentweb:4.0.2',
+            //圆角图片
+            roundedimageview        : "com.makeramen:roundedimageview:2.3.0",
+            //BGABanner
+            bgabanner               : "cn.bingoogolapple:bga-banner:2.2.5@aar",
+            //JPush
+            jpush                   : 'cn.jiguang.sdk:jpush:3.1.8',
+            jcore                   : 'cn.jiguang.sdk:jcore:1.2.6',
+            //底部弹窗
+            bottomsheet             : 'com.flipboard:bottomsheet-core:1.5.3',
+            //五星好评
+            ratingbar               : 'com.iarcuschin:simpleratingbar:0.1.5'
+    ]
+}
