@@ -9,30 +9,35 @@
         android:id="@+id/iv_commodity_icon"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="1:1"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:src="@mipmap/cart_full"
+        app:layout_constraintDimensionRatio="91:70"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_commodity_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_18"
-        android:textColor="@color/colorAccent"
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_26"
+        android:ellipsize="end"
+        android:text="商品名字"
+        android:textColor="@color/text3"
+        android:textSize="@dimen/sp_12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_commodity_icon"
-        tools:text="商品名字" />
+        app:layout_constraintTop_toBottomOf="@id/iv_commodity_icon" />
 
     <TextView
         android:id="@+id/tv_commodity_money"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_18"
-        android:textColor="@color/colorAccent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/dp_6"
+        android:text="商品50毛"
+        android:textColor="@color/text_member"
+        android:textSize="@dimen/sp_12"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_commodity_name"
-        tools:text="商品50毛" />
+        app:layout_constraintTop_toBottomOf="@id/tv_commodity_name" />
 </android.support.constraint.ConstraintLayout>

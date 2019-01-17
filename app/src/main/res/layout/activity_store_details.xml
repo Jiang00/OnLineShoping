@@ -22,6 +22,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_behavior="com.seocoo.onlineshoping.adapter.FlingBehavior">
@@ -32,10 +33,15 @@
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
                 <android.support.constraint.ConstraintLayout
+
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_180"
-                    android:background="@android:color/holo_red_dark"
+                    android:layout_height="@dimen/dp_188"
                     app:layout_collapseMode="parallax">
+                    <ImageView
+                        android:id="@+id/iv_title_backg"
+                        android:scaleType="fitXY"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
 
                     <ImageView
                         android:id="@+id/iv_store_icon"
@@ -126,9 +132,7 @@
 
                 </android.support.constraint.ConstraintLayout>
 
-
                 <android.support.v7.widget.Toolbar
-                    android:id="@+id/toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:contentInsetEnd="0dp"
@@ -136,10 +140,12 @@
                     app:layout_collapseMode="pin">
 
                     <com.seocoo.onlineshoping.widget.Toolbar
+                        android:id="@+id/toolbar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:bar_right_tv_visible="false"
-                        app:line_color="@color/black" />
+                        app:bar_background="@color/color1"
+                        app:bar_background_alpha="0"
+                        app:bar_right_tv_visible="false" />
                 </android.support.v7.widget.Toolbar>
             </android.support.design.widget.CollapsingToolbarLayout>
         </android.support.design.widget.AppBarLayout>

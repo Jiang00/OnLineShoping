@@ -1,15 +1,23 @@
 package com.seocoo.onlineshoping.activity;
 
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 
 import com.seocoo.onlineshoping.R;
 import com.seocoo.onlineshoping.base.ui.BaseActivity;
 import com.seocoo.onlineshoping.fragment.main.StoreFragment;
 
-public class MainActivity extends BaseActivity {
+import butterknife.BindView;
+
+public class MainActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+
+    @BindView(R.id.nv_main_bottom)
+    BottomNavigationView mBottomNavigation;
     /**
      * 当前页
      */
@@ -39,7 +47,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initEvent() {
-
+        mBottomNavigation.setOnNavigationItemSelectedListener(this);
     }
 
     private void showFragment(int index) {
@@ -55,5 +63,29 @@ public class MainActivity extends BaseActivity {
 //            mPresenter.getUserStatus();
 //        }
 //        mFragmentManager.beginTransaction().show(mFragments.get(currentIndex)).commit();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.navigation_home:
+                showFragment(0);
+                return true;
+            case R.id.navigation_store:
+                showFragment(1);
+                return true;
+            case R.id.navigation_rebate:
+                showFragment(2);
+                return true;
+            case R.id.navigation_integral:
+//                showFragment(2);
+                return true;
+            case R.id.navigation_mine:
+                showFragment(2);
+                return true;
+            default:
+                break;
+        }
+        return false;
     }
 }

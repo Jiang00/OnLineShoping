@@ -11,6 +11,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.seocoo.onlineshoping.R;
 import com.seocoo.onlineshoping.bean.ShopingCartEntity;
+import com.seocoo.onlineshoping.bean.api.CommodityBean;
 
 import java.util.List;
 
@@ -39,10 +40,10 @@ public class ShopingCartListAdapter extends BaseQuickAdapter<ShopingCartEntity, 
             int itemViewId = view1.getId();
             switch (itemViewId) {
                 case R.id.cb_commodity:
-                    List<ShopingCartEntity.CommodityEntity> commodityEntities = item.getCommodityEntities();
+                    List<CommodityBean> commodityEntities = item.getCommodityEntities();
                     commodityEntities.get(position).setCheck(!item.getCommodityEntities().get(position).isCheck());
                     shopCartAdapter.notifyDataSetChanged();
-                    for (ShopingCartEntity.CommodityEntity commodityEntity : commodityEntities) {
+                    for (CommodityBean commodityEntity : commodityEntities) {
                         if (!commodityEntity.isCheck()) {
                             item.setCheck(false);
                             ShopingCartListAdapter.this.notifyDataSetChanged();

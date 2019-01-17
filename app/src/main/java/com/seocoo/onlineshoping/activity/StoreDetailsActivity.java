@@ -2,21 +2,28 @@ package com.seocoo.onlineshoping.activity;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.seocoo.onlineshoping.R;
 import com.seocoo.onlineshoping.adapter.StoreCommodityListAdapter;
 import com.seocoo.onlineshoping.adapter.StoreCommoditySortAdapter;
 import com.seocoo.onlineshoping.base.ui.BaseActivity;
 import com.seocoo.onlineshoping.utils.AddCartAnimation;
+import com.seocoo.onlineshoping.widget.Toolbar;
 
 import org.androidannotations.annotations.Click;
 
@@ -25,6 +32,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import jp.wasabeef.glide.transformations.BlurTransformation;
+
 
 public class StoreDetailsActivity extends BaseActivity {
     @BindView(R.id.rv_ani)
@@ -41,6 +50,12 @@ public class StoreDetailsActivity extends BaseActivity {
     TextView mStoreScore;
     @BindView(R.id.bt_store_order)
     Button mStoreOrder;
+    @BindView(R.id.toolbar)
+    Toolbar mToolber;
+    @BindView(R.id.appbar_layout)
+    AppBarLayout mAppbarLayout;
+    @BindView(R.id.iv_title_backg)
+    ImageView mTitle;
     private StoreCommoditySortAdapter storeDetailSortAdapter;
     private StoreCommodityListAdapter storeDetailAdapter;
     private BottomSheetBehavior bottomSheetBehavior;
@@ -59,6 +74,13 @@ public class StoreDetailsActivity extends BaseActivity {
     protected void initView() {
         bottomSheetBehavior = BottomSheetBehavior.from(mCartList);
         bottomSheetBehavior.setSkipCollapsed(true);
+        mAppbarLayout.addOnOffsetChangedListener((appBarLayout, i) -> {
+            Log.e("jfy", mAppbarLayout.getHeight() - mToolber.getHeight() + "aaa===" + i);
+            mToolber.setRootViewAlpha(((float) -i) / (mAppbarLayout.getHeight() - mToolber.getHeight()));
+        });
+        Glide.with(this).load(R.mipmap.cart_full)
+                .apply(RequestOptions.bitmapTransform(new BlurTransformation(25, 5)))
+                .into(mTitle);
     }
 
     @OnClick({R.id.tv_store_score, R.id.bt_store_order, R.id.iv_store_cart})
@@ -149,5 +171,16 @@ public class StoreDetailsActivity extends BaseActivity {
         } else {
             mRecyclerView.scrollToPosition(position);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (storeDetailAdapter != null) {
+            storeDetailAdapter.setCommodityClickListener(null);
+        }
+        if (mCommodity != null) {
+            mCommodity.clearOnScrollListeners();
+        }
+        super.onDestroy();
     }
 }

@@ -4,5 +4,13 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="blue">#3333aa</color>
+    <color name="color1">#3E80CB</color>
+    <color name="text9">#999999</color>
+    <color name="text6">#666666</color>
+    <color name="text3">#333333</color>
+    <color name="white_100">#ffffffff</color>
+    <color name="text_star">#F04335</color>
+    <color name="text_member">#EB6236</color>
+    <color name="backg2">#F2F2F2</color>
 
 </resources>

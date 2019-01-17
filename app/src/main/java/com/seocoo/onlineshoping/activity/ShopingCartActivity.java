@@ -13,6 +13,7 @@ import com.seocoo.onlineshoping.R;
 import com.seocoo.onlineshoping.adapter.ShopingCartListAdapter;
 import com.seocoo.onlineshoping.base.ui.BaseActivity;
 import com.seocoo.onlineshoping.bean.ShopingCartEntity;
+import com.seocoo.onlineshoping.bean.api.CommodityBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +52,7 @@ public class ShopingCartActivity extends BaseActivity {
         mShopCart.setAdapter(adapter);
         adapter.setOnItemChildClickListener((adapter1, view, position) -> {
             shopingCartEntities.get(position).setCheck(!shopingCartEntities.get(position).isCheck());
-            for (ShopingCartEntity.CommodityEntity commodityEntity : shopingCartEntities.get(position).getCommodityEntities()) {
+            for (CommodityBean commodityEntity : shopingCartEntities.get(position).getCommodityEntities()) {
                 commodityEntity.setCheck(shopingCartEntities.get(position).isCheck());
             }
             adapter.notifyDataSetChanged();

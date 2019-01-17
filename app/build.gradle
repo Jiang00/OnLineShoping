@@ -99,6 +99,8 @@ dependencies {
     implementation rootProject.ext.dependencies.roundedimageview
     implementation rootProject.ext.dependencies.bgabanner
     implementation rootProject.ext.dependencies.ratingbar
+    implementation rootProject.ext.dependencies.flowlayout
+    implementation rootProject.ext.dependencies.transformations
     implementation project(":citypicker")//城市选择
     //JPush
     //    implementation rootProject.ext.dependencies.jpush

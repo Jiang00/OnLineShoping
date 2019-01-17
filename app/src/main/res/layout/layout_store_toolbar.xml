@@ -5,7 +5,7 @@
     android:id="@+id/ll_toolbar_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/blue"
+    android:background="@color/color1"
     android:orientation="vertical">
 
     <View
@@ -20,11 +20,10 @@
 
         <ImageView
             android:id="@+id/iv_toolbar_left"
-            android:layout_width="@dimen/dp_29"
-            android:layout_height="@dimen/dp_37"
-            android:layout_marginStart="@dimen/dp_10"
-            android:padding="@dimen/dp_10"
-            android:src="@drawable/ic_toolbar_back"
+            android:layout_width="@dimen/dp_18"
+            android:layout_height="@dimen/dp_18"
+            android:layout_marginStart="@dimen/dp_14"
+            android:src="@mipmap/location"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +32,7 @@
             android:id="@+id/tv_toolbar_left"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_6"
             android:gravity="center"
             android:text="合肥市"
             android:textColor="@color/white"
@@ -44,10 +43,9 @@
 
         <ImageView
             android:id="@+id/iv_toolbar_city"
-            android:layout_width="@dimen/dp_20"
-            android:layout_height="@dimen/dp_20"
-            android:rotation="-90"
-            android:src="@drawable/ic_toolbar_back"
+            android:layout_width="@dimen/dp_18"
+            android:layout_height="@dimen/dp_18"
+            android:src="@mipmap/location_down"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/tv_toolbar_left"
             app:layout_constraintTop_toTopOf="parent" />
@@ -55,7 +53,7 @@
         <android.support.constraint.ConstraintLayout
             android:layout_width="0dp"
             android:layout_height="@dimen/dp_30"
-            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginLeft="@dimen/dp_11"
             android:layout_marginRight="@dimen/dp_16"
             android:background="@drawable/shape_white_round"
             android:focusable="true"
@@ -65,16 +63,18 @@
             app:layout_constraintStart_toEndOf="@id/iv_toolbar_city"
             app:layout_constraintTop_toTopOf="parent">
 
-            <EditText
+            <TextView
                 android:id="@+id/et_store_edit"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginLeft="@dimen/dp_16"
+                android:layout_marginStart="@dimen/dp_16"
                 android:background="@color/transparent"
-                android:hint="请输入"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textSize="@dimen/sp_12"
+                android:gravity="center_vertical"
+                android:imeOptions="actionSearch"
+                android:lines="1"
+                android:text="@string/store_hint"
+                android:textColor="@color/text9"
+                android:textSize="@dimen/sp_13"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/iv_store_search"
                 app:layout_constraintStart_toStartOf="parent"
@@ -82,9 +82,10 @@
 
             <ImageView
                 android:id="@+id/iv_store_search"
-                android:layout_width="@dimen/dp_16"
-                android:layout_height="@dimen/dp_16"
-                android:layout_marginEnd="@dimen/dp_16"
+                android:layout_width="@dimen/dp_18"
+                android:layout_height="@dimen/dp_18"
+                android:layout_marginEnd="@dimen/dp_14"
+                android:src="@mipmap/edit_search"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

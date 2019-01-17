@@ -8,30 +8,19 @@ import java.util.List;
 /**
  * desc   :
  * author : Jiang
- * date   : 2019/1/14
+ * date   : 2019/1/16
  */
-
-
-public class ShopingCartEntity {
-    List<CommodityBean> commodityEntities;
+public class NearStoreEntity {
     String name;
-    boolean isCheck;
+    List<CommodityBean> commodityEntities;
 
-    public ShopingCartEntity() {
+    public NearStoreEntity() {
         commodityEntities = new ArrayList<>();
-        for (int j = 0; j < 5; j++) {
+        for (int j = 0; j < 3; j++) {
             CommodityBean commodityEntity = new CommodityBean();
             commodityEntity.setName(j + "aa");
             commodityEntities.add(commodityEntity);
         }
-    }
-
-    public List<CommodityBean> getCommodityEntities() {
-        return commodityEntities;
-    }
-
-    public void setCommodityEntities(List<CommodityBean> commodityEntities) {
-        this.commodityEntities = commodityEntities;
     }
 
     public String getName() {
@@ -42,12 +31,11 @@ public class ShopingCartEntity {
         this.name = name;
     }
 
-    public boolean isCheck() {
-        return isCheck;
+    public List<CommodityBean> getCommodities() {
+        return commodityEntities;
     }
 
-    public void setCheck(boolean check) {
-        isCheck = check;
+    public void setCommodities(List<CommodityBean> commodities) {
+        this.commodityEntities = commodities;
     }
-
 }

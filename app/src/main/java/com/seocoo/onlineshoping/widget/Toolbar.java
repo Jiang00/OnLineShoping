@@ -11,10 +11,12 @@ import android.support.transition.TransitionManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -30,7 +32,7 @@ import com.seocoo.onlineshoping.utils.StringUtils;
  * @author Bian
  * create at 2018/12/17
  */
-public class Toolbar extends ConstraintLayout implements View.OnClickListener, TextWatcher, View.OnTouchListener {
+public class Toolbar extends ConstraintLayout implements View.OnClickListener, TextWatcher, TextView.OnEditorActionListener, View.OnFocusChangeListener {
 
     private Context context;
     private boolean ivLeftVisible;
@@ -50,6 +52,7 @@ public class Toolbar extends ConstraintLayout implements View.OnClickListener, T
     private int editTextColor;
     private String editHintText;
     private int editBackground;
+    private int leftResouse;
     private int lineColor;
     private TextView tvMiddle;
     private TextView tvLeft;
@@ -91,6 +94,7 @@ public class Toolbar extends ConstraintLayout implements View.OnClickListener, T
         editHintColor = typedArray.getColor(R.styleable.Toolbar_edit_hint_color, 0);
         editTextColor = typedArray.getColor(R.styleable.Toolbar_edit_text_color, 0);
         editBackground = typedArray.getResourceId(R.styleable.Toolbar_edit_background, 0);
+        leftResouse = typedArray.getResourceId(R.styleable.Toolbar_bar_left_iv_resource, 0);
         lineColor = typedArray.getColor(R.styleable.Toolbar_line_color, 0);
         if (typedArray.hasValue(R.styleable.Toolbar_bar_left_tv_text)) {
             editHintText = typedArray.getString(R.styleable.Toolbar_edit_hint_text);
@@ -114,6 +118,7 @@ public class Toolbar extends ConstraintLayout implements View.OnClickListener, T
     private void initView() {
         tvLeft = findViewById(R.id.tv_toolbar_left);
         ImageView ivLeft = findViewById(R.id.iv_toolbar_left);
+        ImageView ivSearch = findViewById(R.id.iv_store_search);
         etMiddle = findViewById(R.id.et_store_edit);
         tvRight = findViewById(R.id.tv_toolbar_right);
         View topView = findViewById(R.id.view_toolbar_top);
@@ -159,6 +164,9 @@ public class Toolbar extends ConstraintLayout implements View.OnClickListener, T
             line.setBackgroundColor(lineColor);
             line.setVisibility(VISIBLE);
         }
+        if (leftResouse != 0) {
+            ivLeft.setImageResource(leftResouse);
+        }
         if (isTopVisible) {
             topView.setVisibility(VISIBLE);
             setViewStatusHeight(context, topView);
@@ -178,16 +186,18 @@ public class Toolbar extends ConstraintLayout implements View.OnClickListener, T
                 etMiddle.setTextColor(editTextColor);
             }
             if (editBackground != 0) {
-                etMiddle.setBackgroundResource(editBackground);
+                clEdit.setBackgroundResource(editBackground);
             }
-            etMiddle.setOnTouchListener(this);
             etMiddle.addTextChangedListener(this);
+            etMiddle.setOnEditorActionListener(this);
+            etMiddle.setOnFocusChangeListener(this);
         }
         applyConstraintSet.clone(clToolbar);
         resetConstraintSet.clone(clToolbar);
         ivLeft.setOnClickListener(this);
         tvLeft.setOnClickListener(this);
         tvRight.setOnClickListener(this);
+        ivSearch.setOnClickListener(this);
     }
 
     private void setViewStatusHeight(Context context, View topView) {
@@ -212,17 +222,15 @@ public class Toolbar extends ConstraintLayout implements View.OnClickListener, T
                 }
                 ((Activity) context).onBackPressed();
                 break;
+            case R.id.iv_store_search:
+                searchClick();
+                break;
             case R.id.tv_toolbar_right:
                 if (rightClickListener != null) {
                     rightClickListener.rightClickListener();
-                    break;
+                    return;
                 }
-                InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-                if (imm.isActive()) {
-                    imm.hideSoftInputFromWindow(etMiddle.getWindowToken(), 0);
-                }
-                TransitionManager.beginDelayedTransition(clToolbar);
-                resetConstraintSet.applyTo(clToolbar);
+                ((Activity) context).onBackPressed();
                 break;
             default:
                 break;
@@ -231,8 +239,7 @@ public class Toolbar extends ConstraintLayout implements View.OnClickListener, T
 
     private ToolbarLeftClickListener leftClickListener;
     private ToolbarRightClickListener rightClickListener;
-    private ToolbarEditClickListener editClickListener;
-    private ToolbarTextChangeListener textChangeListener;
+    private ToolbarEditTextListener editTextListener;
 
     public void setLeftClickListener(ToolbarLeftClickListener leftClickListener) {
         this.leftClickListener = leftClickListener;
@@ -242,12 +249,9 @@ public class Toolbar extends ConstraintLayout implements View.OnClickListener, T
         this.rightClickListener = rightClickListener;
     }
 
-    public void setEditClickListener(ToolbarEditClickListener editClickListener) {
-        this.editClickListener = editClickListener;
-    }
 
-    public void setTextChangeListener(ToolbarTextChangeListener textChangeListener) {
-        this.textChangeListener = textChangeListener;
+    public void setEditTextListener(ToolbarEditTextListener editTextListener) {
+        this.editTextListener = editTextListener;
     }
 
     public void setMidText(String midText) {
@@ -281,6 +285,18 @@ public class Toolbar extends ConstraintLayout implements View.OnClickListener, T
         return tvRight;
     }
 
+    public void destory() {
+        applyConstraintSet.clear(R.id.cl_toolbar);
+        resetConstraintSet.clear(R.id.cl_toolbar);
+    }
+
+    /**
+     * 主动获取焦点
+     */
+    public void clickEditText() {
+        etMiddle.requestFocus();
+    }
+
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -288,8 +304,8 @@ public class Toolbar extends ConstraintLayout implements View.OnClickListener, T
 
     @Override
     public void onTextChanged(CharSequence s, int start, int before, int count) {
-        if (textChangeListener != null) {
-            textChangeListener.textChange(s.toString());
+        if (editTextListener != null) {
+            editTextListener.textChange(s.toString());
         }
     }
 
@@ -298,20 +314,66 @@ public class Toolbar extends ConstraintLayout implements View.OnClickListener, T
 
     }
 
+    /**
+     * 软键盘搜索
+     *
+     * @param v
+     * @param actionId
+     * @param event
+     * @return
+     */
     @Override
-    public boolean onTouch(View v, MotionEvent event) {
-        if (v.getId() == R.id.et_store_edit && event.getAction() == MotionEvent.ACTION_DOWN) {
-            if (editClickListener != null) {
-                editClickListener.editClickListener();
-                return false;
+    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+        if (actionId == EditorInfo.IME_ACTION_SEND || (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
+            searchClick();
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 搜索
+     */
+    private void searchClick() {
+        etMiddle.clearFocus();
+        if (editTextListener != null) {
+            String string = etMiddle.getText().toString();
+            if (StringUtils.isEmpty(string)) {
+                string = etMiddle.getHint().toString();
             }
+            if (StringUtils.isEmpty(string)) {
+                return;
+            }
+            editTextListener.clickSearch(string);
+        }
+    }
+
+    /**
+     * editText焦点监听
+     *
+     * @param v
+     * @param hasFocus
+     */
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        if (editTextListener != null) {
+            editTextListener.onFocusChange(hasFocus, etMiddle.getText().toString());
+        }
+        if (hasFocus) {
             TransitionManager.beginDelayedTransition(clToolbar);
             applyConstraintSet.setVisibility(R.id.tv_toolbar_left, ConstraintSet.GONE);
             applyConstraintSet.setVisibility(R.id.iv_toolbar_left, ConstraintSet.GONE);
             applyConstraintSet.setVisibility(R.id.tv_toolbar_right, ConstraintSet.VERTICAL);
             applyConstraintSet.applyTo(clToolbar);
+        } else {
+            TransitionManager.beginDelayedTransition(clToolbar);
+            resetConstraintSet.applyTo(clToolbar);
+            InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (imm.isActive()) {
+                imm.hideSoftInputFromWindow(etMiddle.getWindowToken(), 0);
+            }
+
         }
-        return false;
     }
 
     public interface ToolbarLeftClickListener {
@@ -329,19 +391,27 @@ public class Toolbar extends ConstraintLayout implements View.OnClickListener, T
         void rightClickListener();
     }
 
-    public interface ToolbarEditClickListener {
-        /**
-         * 右边点击事件
-         */
-        void editClickListener();
-    }
 
-    public interface ToolbarTextChangeListener {
+    public interface ToolbarEditTextListener {
         /**
-         * 右边点击事件
+         * 搜索
+         *
+         * @param text
+         */
+        void clickSearch(String text);
+
+        /**
+         * 搜索
          *
          * @param text
          */
         void textChange(String text);
+
+        /**
+         * 搜索
+         *
+         * @param hasFocus
+         */
+        void onFocusChange(boolean hasFocus, String string);
     }
 }

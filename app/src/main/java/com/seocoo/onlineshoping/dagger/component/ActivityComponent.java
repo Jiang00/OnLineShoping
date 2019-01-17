@@ -1,6 +1,7 @@
 package com.seocoo.onlineshoping.dagger.component;
 
 import com.seocoo.onlineshoping.activity.MainActivity;
+import com.seocoo.onlineshoping.activity.SearchStoreActivity;
 import com.seocoo.onlineshoping.dagger.module.ActivityModule;
 import com.seocoo.onlineshoping.dagger.module.FragmentModule;
 import com.seocoo.onlineshoping.dagger.scope.ActivityScope;
@@ -16,6 +17,6 @@ import dagger.Component;
 @ActivityScope
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
 public interface ActivityComponent {
-
+    void inject(SearchStoreActivity searchStoreActivity);
 
 }

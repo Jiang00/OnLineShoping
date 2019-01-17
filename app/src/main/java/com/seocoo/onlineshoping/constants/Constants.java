@@ -23,4 +23,8 @@ public class Constants {
      * 网络请求成功返回参数
      */
     public static final int HTTP_SUCCESS = 200;
+    /**
+     * 跳转页面参数
+     */
+    public static final String INTENT_KEY = "name";
 }

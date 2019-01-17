@@ -89,6 +89,9 @@ public abstract class BaseActivity<V extends BasePresenter> extends AppCompatAct
         super.onDestroy();
         ActivityUtils.getInstance().removeActivity(this);
         BaseApp.getRefWatcher().watch(this);
+        if (isImmersionBarEnabled()) {
+            ImmersionBar.with(this).destroy();
+        }
         if (mPresenter != null) {
             mPresenter.detachView();
             mPresenter = null;

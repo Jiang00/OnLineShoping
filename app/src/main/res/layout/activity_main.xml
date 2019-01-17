@@ -16,9 +16,10 @@
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/nv_main_bottom"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_56"
-        app:itemIconTint="@color/colorAccent"
-        app:itemTextColor="@color/colorAccent"
+        android:layout_height="wrap_content"
+        app:itemIconSize="@dimen/dp_26"
+        app:itemIconTint="@drawable/main_bottom_color"
+        app:itemTextColor="@drawable/main_bottom_color"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/navigation" />

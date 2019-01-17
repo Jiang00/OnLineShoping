@@ -12,7 +12,6 @@
         <!--中间标题-->
         <attr name="bar_mid_tv_text" format="reference|string" />
         <attr name="bar_mid_tv_color" format="reference|color" />
-        <attr name="bar_mid_tv_size" format="dimension" />
         <!--右边图标-->
         <attr name="bar_right_iv_visible" format="boolean" />
         <attr name="bar_right_iv_resource" format="reference" />
@@ -34,5 +33,8 @@
         <attr name="edit_background" format="reference|color" />
         <!--line-->
         <attr name="line_color" format="reference|color" />
+    </declare-styleable>
+    <declare-styleable name="RoundImageView">
+        <attr name="roundLayoutRadius" format="dimension" />
     </declare-styleable>
 </resources>

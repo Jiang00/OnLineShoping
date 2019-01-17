@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SearchStoreActivity">
+
+    <com.seocoo.onlineshoping.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bar_background="@color/white_100"
+        app:bar_left_iv_resource="@mipmap/back_blue"
+        app:bar_left_tv_color="@color/color1"
+        app:bar_left_tv_text="@string/back"
+        app:bar_right_tv_color="@color/color1"
+        app:edit_background="@drawable/shape_backg2" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/cl_group"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/backg2">
+
+            <android.support.constraint.Group
+                android:id="@+id/group_before_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="iv_search_before,tv_search_before,rv_search_before,iv_search_recommend,tv_search_recommend,rv_search_recommend" />
+
+            <ImageView
+                android:id="@+id/iv_search_before"
+                android:layout_width="@dimen/dp_14"
+                android:layout_height="@dimen/dp_14"
+                android:layout_marginStart="@dimen/dp_14"
+                android:layout_marginTop="@dimen/dp_16"
+                android:src="@mipmap/search_before"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_search_before"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:text="@string/search_before"
+                app:layout_constraintBottom_toBottomOf="@id/iv_search_before"
+                app:layout_constraintStart_toEndOf="@id/iv_search_before"
+                app:layout_constraintTop_toTopOf="@id/iv_search_before" />
+
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/rv_search_before"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_11"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_11"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_search_before"
+                app:max_select="10" />
+
+            <ImageView
+                android:id="@+id/iv_search_recommend"
+                android:layout_width="@dimen/dp_14"
+                android:layout_height="@dimen/dp_14"
+                android:layout_marginStart="@dimen/dp_14"
+                android:layout_marginTop="@dimen/dp_16"
+                android:src="@mipmap/search_recommend"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rv_search_before" />
+
+            <TextView
+                android:id="@+id/tv_search_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:text="@string/search_before"
+                app:layout_constraintBottom_toBottomOf="@id/iv_search_recommend"
+                app:layout_constraintStart_toEndOf="@id/iv_search_recommend"
+                app:layout_constraintTop_toTopOf="@id/iv_search_recommend" />
+
+            <com.zhy.view.flowlayout.TagFlowLayout
+                android:id="@+id/rv_search_recommend"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_11"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginEnd="@dimen/dp_11"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_search_recommend" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_search_find"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_search_result"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white_100"
+                android:paddingTop="@dimen/dp_7"
+                android:visibility="gone" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.constraint.ConstraintLayout>

@@ -6,5 +6,8 @@
     <string name="main_rebate">返利商城</string>
     <string name="main_integral">积分缴费</string>
     <string name="main_mine">我的</string>
-    <string name="title_activity_confirm_order">ConfirmOrderActivity</string>
+    <string name="store_hint">请输入门店名称</string>
+    <string name="back">返回</string>
+    <string name="search_before">历史搜索</string>
+    <string name="search_recommend">热门推荐</string>
 </resources>

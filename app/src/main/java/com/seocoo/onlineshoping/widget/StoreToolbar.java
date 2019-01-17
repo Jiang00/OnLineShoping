@@ -35,6 +35,7 @@ public class StoreToolbar extends ConstraintLayout implements View.OnClickListen
     private Context context;
     private String midText;
     private TextView tvLeft;
+    private TextView etStore;
 
     public StoreToolbar(Context context) {
         super(context, null);
@@ -60,31 +61,14 @@ public class StoreToolbar extends ConstraintLayout implements View.OnClickListen
         tvLeft = findViewById(R.id.tv_toolbar_left);
         ImageView ivLeft = findViewById(R.id.iv_toolbar_city);
         View topView = findViewById(R.id.view_toolbar_top);
-        EditText etStore = findViewById(R.id.et_store_edit);
+        etStore = findViewById(R.id.et_store_edit);
         ImageView ivSearch = findViewById(R.id.iv_store_search);
         topView.setVisibility(VISIBLE);
         setViewStatusHeight(context, topView);
         ivSearch.setOnClickListener(this);
         tvLeft.setOnClickListener(this);
         ivLeft.setOnClickListener(this);
-        etStore.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (textChangeListener != null) {
-                    textChangeListener.textChange(s.toString());
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
+        etStore.setOnClickListener(this);
     }
 
     private void setViewStatusHeight(Context context, View topView) {
@@ -102,18 +86,23 @@ public class StoreToolbar extends ConstraintLayout implements View.OnClickListen
         tvLeft.setText(text);
     }
 
+    public void setStoreText(String text) {
+        etStore.setText(text);
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_toolbar_left:
             case R.id.iv_toolbar_left:
+            case R.id.iv_toolbar_city:
                 if (leftClickListener != null) {
                     leftClickListener.leftClickListener();
                 }
                 break;
-            case R.id.iv_toolbar_city:
+            case R.id.et_store_edit:
                 if (searchClickListener != null) {
-                    searchClickListener.searchClickListener();
+                    searchClickListener.searchClickListener(etStore.getText().toString());
                 }
                 break;
             default:
@@ -124,7 +113,6 @@ public class StoreToolbar extends ConstraintLayout implements View.OnClickListen
 
     private ToolbarLeftClickListener leftClickListener;
     private ToolbarRightClickListener searchClickListener;
-    private ToolbarTextChangeListener textChangeListener;
 
     public void setLeftClickListener(ToolbarLeftClickListener leftClickListener) {
         this.leftClickListener = leftClickListener;
@@ -132,10 +120,6 @@ public class StoreToolbar extends ConstraintLayout implements View.OnClickListen
 
     public void setSearchClickListener(ToolbarRightClickListener searchClickListener) {
         this.searchClickListener = searchClickListener;
-    }
-
-    public void setTextChangeListener(ToolbarTextChangeListener textChangeListener) {
-        this.textChangeListener = textChangeListener;
     }
 
 
@@ -151,13 +135,7 @@ public class StoreToolbar extends ConstraintLayout implements View.OnClickListen
         /**
          * 右边点击事件
          */
-        void searchClickListener();
+        void searchClickListener(String storeName);
     }
 
-    public interface ToolbarTextChangeListener {
-        /**
-         * 右边点击事件
-         */
-        void textChange(String text);
-    }
 }
