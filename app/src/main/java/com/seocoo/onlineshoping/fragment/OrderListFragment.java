@@ -83,7 +83,7 @@ public class OrderListFragment extends BaseFragment {
         super.lazyEvent();
 //        EventBus.getDefault().post(new OrderEvent());
         mOrders.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mOrders.setAdapter(new OrderListAdapter(R.layout.));
+//        mOrders.setAdapter(new OrderListAdapter(R.layout.));
 
     }
 
