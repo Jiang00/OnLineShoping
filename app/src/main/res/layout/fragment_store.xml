@@ -12,33 +12,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <cn.bingoogolapple.bgabanner.BGABanner
-        android:id="@+id/store_banner"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:banner_indicatorGravity="bottom|center_horizontal"
-        app:banner_pageChangeDuration="1000"
-        app:banner_pointAutoPlayInterval="4000"
-        app:banner_pointContainerBackground="@color/transparent"
-        app:banner_pointTopBottomMargin="@dimen/dp_5"
-        app:banner_tipTextColor="@color/transparent"
-        app:layout_constraintDimensionRatio="345:151"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/store__tool_bar" />
-
-    <TextView
-        android:id="@+id/tv_nearbt_store"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/dp_15"
-        android:layout_marginTop="@dimen/dp_20"
-        android:text="附近的店"
-        android:textColor="@color/text6"
-        android:textSize="@dimen/sp_15"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/store_banner" />
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_nearbt_store"
         android:layout_width="0dp"
@@ -46,7 +19,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_nearbt_store" />
+        app:layout_constraintTop_toBottomOf="@+id/store__tool_bar" />
 
 
     <android.support.design.widget.FloatingActionButton

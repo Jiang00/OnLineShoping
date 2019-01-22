@@ -1,19 +1,38 @@
 package com.seocoo.onlineshoping.activity;
 
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
+import com.liulishuo.okdownload.DownloadListener;
+import com.liulishuo.okdownload.DownloadSerialQueue;
+import com.liulishuo.okdownload.DownloadTask;
+import com.liulishuo.okdownload.SpeedCalculator;
+import com.liulishuo.okdownload.core.breakpoint.BlockInfo;
+import com.liulishuo.okdownload.core.breakpoint.BreakpointInfo;
+import com.liulishuo.okdownload.core.cause.EndCause;
+import com.liulishuo.okdownload.core.cause.ResumeFailedCause;
+import com.liulishuo.okdownload.core.listener.DownloadListener4WithSpeed;
+import com.liulishuo.okdownload.core.listener.assist.Listener4SpeedAssistExtend;
 import com.seocoo.onlineshoping.R;
 import com.seocoo.onlineshoping.base.ui.BaseActivity;
 import com.seocoo.onlineshoping.fragment.main.StoreFragment;
 
+import java.io.File;
+import java.util.List;
+import java.util.Map;
+
 import butterknife.BindView;
 
+/**
+ * 主页
+ */
 public class MainActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     @BindView(R.id.nv_main_bottom)
@@ -37,6 +56,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     @Override
     protected void initView() {
         mFragmentManager = getSupportFragmentManager();
+        mFragmentManager.getFragments().clear();
         mFragmentManager.beginTransaction().add(R.id.a, new StoreFragment()).commit();
     }
 

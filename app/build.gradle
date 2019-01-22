@@ -101,6 +101,7 @@ dependencies {
     implementation rootProject.ext.dependencies.ratingbar
     implementation rootProject.ext.dependencies.flowlayout
     implementation rootProject.ext.dependencies.transformations
+    implementation rootProject.ext.dependencies.bottomsheet
     implementation project(":citypicker")//城市选择
     //JPush
     //    implementation rootProject.ext.dependencies.jpush

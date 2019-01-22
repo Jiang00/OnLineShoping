@@ -19,6 +19,9 @@ import java.util.List;
 
 import butterknife.BindView;
 
+/**
+ * 商品详情
+ */
 public class CommodityDetailsActivity extends BaseActivity {
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
@@ -49,9 +52,9 @@ public class CommodityDetailsActivity extends BaseActivity {
             list.add(i + "");
         }
         GridItemDecoration gridItemDecoration = new GridItemDecoration.Builder(this)
-                .setColorResource(R.color.transparent)
-                .setHorizontalSpan(R.dimen.dp_8)
-                .setVerticalSpan(R.dimen.dp_8)
+                .setColorResource(R.color.color_f2)
+                .setHorizontalSpan(R.dimen.dp_3)
+                .setVerticalSpan(R.dimen.dp_3)
                 .setShowLastLine(false)
                 .setHasHeader(true)
                 .build();

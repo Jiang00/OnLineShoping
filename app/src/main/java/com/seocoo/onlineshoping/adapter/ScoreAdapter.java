@@ -9,7 +9,7 @@ import com.seocoo.onlineshoping.R;
 import java.util.List;
 
 /**
- * desc   :
+ * desc   :评价列表适配器
  * author : Jiang
  * date   : 2019/1/10
  */

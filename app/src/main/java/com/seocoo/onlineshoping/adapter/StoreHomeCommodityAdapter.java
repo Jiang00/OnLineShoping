@@ -11,7 +11,7 @@ import com.seocoo.onlineshoping.bean.api.CommodityBean;
 import java.util.List;
 
 /**
- * desc   :
+ * desc   :店铺内首页推荐商品列表 3个商品
  * author : Jiang
  * date   : 2019/1/10
  */

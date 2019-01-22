@@ -17,6 +17,7 @@ import com.seocoo.onlineshoping.base.view.BaseView;
 import com.seocoo.onlineshoping.dagger.component.ActivityComponent;
 import com.seocoo.onlineshoping.dagger.component.DaggerActivityComponent;
 import com.seocoo.onlineshoping.utils.ActivityUtils;
+import com.seocoo.onlineshoping.utils.StatusBarUtils;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import javax.inject.Inject;
@@ -49,6 +50,7 @@ public abstract class BaseActivity<V extends BasePresenter> extends AppCompatAct
         activityInject();
         if (isImmersionBarEnabled()) {
             initImmersionBar(R.color.transparent);
+            StatusBarUtils.setAndroidNativeLightStatusBar(this,true);
         }
         if (mPresenter != null) {
             mPresenter.attachView(this);

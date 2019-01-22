@@ -9,8 +9,15 @@
     <color name="text6">#666666</color>
     <color name="text3">#333333</color>
     <color name="white_100">#ffffffff</color>
+    <color name="text_dc">#dcdcdc</color>
     <color name="text_star">#F04335</color>
     <color name="text_member">#EB6236</color>
     <color name="backg2">#F2F2F2</color>
+    <color name="backg_d">#dddddd</color>
+    <color name="backg_d4">#d4d4d4</color>
+    <color name="backg_e6">#E6E6E6</color>
+    <color name="backg_e8">#e8e8e8</color>
+    <color name="backg_3d">#3d3d3f</color>
+    <color name="backg_e0">#E0EFFF</color>
 
 </resources>

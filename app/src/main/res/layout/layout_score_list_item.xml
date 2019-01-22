@@ -5,23 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <ImageView
+    <com.seocoo.onlineshoping.widget.RoundImageView
         android:id="@+id/iv_score_item_icon"
-        android:layout_width="@dimen/dp_40"
-        android:layout_height="@dimen/dp_40"
-        android:layout_marginStart="@dimen/dp_16"
-        android:layout_marginTop="@dimen/dp_25"
+        android:layout_width="@dimen/dp_32"
+        android:layout_height="@dimen/dp_32"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_20"
         android:src="@mipmap/ic_launcher"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:roundLayoutRadius="@dimen/dp_32" />
 
     <TextView
         android:id="@+id/iv_score_item_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginStart="@dimen/dp_10"
         android:text="用户名字"
-        android:textColor="@color/black"
+        android:textColor="@color/text3"
         android:textSize="@dimen/sp_12"
         app:layout_constraintStart_toEndOf="@id/iv_score_item_icon"
         app:layout_constraintTop_toTopOf="@id/iv_score_item_icon" />
@@ -30,9 +31,9 @@
         android:id="@+id/iv_score_item_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_15"
         android:text="2019-1-10"
-        android:textColor="@color/black"
+        android:textColor="@color/text9"
         android:textSize="@dimen/sp_12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/iv_score_item_icon" />
@@ -43,8 +44,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_4"
         android:text="评分"
-        android:textColor="@color/black"
-        android:textSize="@dimen/sp_12"
+        android:textColor="@color/text9"
+        android:textSize="@dimen/sp_10"
         app:layout_constraintStart_toStartOf="@id/iv_score_item_name"
         app:layout_constraintTop_toBottomOf="@id/iv_score_item_name" />
 
@@ -60,18 +61,18 @@
         app:srb_numberOfStars="5"
         app:srb_rating="4.5"
         app:srb_starBackgroundColor="@color/cp_colorAccent"
-        app:srb_starSize="@dimen/dp_12"
-        app:srb_stepSize="0.1" />
+        app:srb_starSize="@dimen/dp_13"
+        app:srb_stepSize="1" />
 
     <TextView
         android:id="@+id/iv_score_item_content"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_4"
-        android:layout_marginEnd="@dimen/dp_12"
-        android:layout_marginBottom="@dimen/dp_12"
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_marginEnd="@dimen/dp_19"
+        android:layout_marginBottom="@dimen/dp_16"
         android:text="abcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcd"
-        android:textColor="@color/black"
+        android:textColor="@color/text3"
         android:textSize="@dimen/sp_12"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

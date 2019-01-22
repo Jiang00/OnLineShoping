@@ -15,6 +15,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 
@@ -25,26 +26,29 @@ public class LinearItemDecoration extends RecyclerView.ItemDecoration {
     private int mSpanSpace = 2;
     private int mLeftPadding;
     private int mRightPadding;
+    private int hasHeader;
 
-    private LinearItemDecoration(int span, int leftPadding, int rightPadding, int color, boolean show) {
+    private LinearItemDecoration(int span, int leftPadding, int rightPadding, int color, boolean show, int hasHeader) {
         mSpanSpace = span;
         mShowLastLine = show;
         mLeftPadding = leftPadding;
         mRightPadding = rightPadding;
+        this.hasHeader = hasHeader;
         mDivider = new ColorDrawable(color);
     }
 
     @Override
     public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, RecyclerView parent, RecyclerView.State state) {
         int count = mShowLastLine ? parent.getAdapter().getItemCount() : parent.getAdapter().getItemCount() - 1;
+        int itemPosition = parent.getChildAdapterPosition(view);
         if (isVertical(parent)) {
-            if (parent.getChildAdapterPosition(view) < count) {
+            if (itemPosition < count) {
                 outRect.set(0, 0, 0, mSpanSpace);
             } else {
                 outRect.set(0, 0, 0, 0);
             }
         } else {
-            if (parent.getChildAdapterPosition(view) < count) {
+            if (itemPosition < count) {
                 outRect.set(0, 0, mSpanSpace, 0);
             } else {
                 outRect.set(0, 0, 0, 0);
@@ -76,6 +80,9 @@ public class LinearItemDecoration extends RecyclerView.ItemDecoration {
         final int childCount = parent.getChildCount();
         for (int i = 0; i < childCount; i++) {
             final View child = parent.getChildAt(i);
+            if ((parent.getChildViewHolder(child).getAdapterPosition()) < hasHeader) {
+                continue;
+            }
             final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child.getLayoutParams();
             final int top = child.getBottom() + params.bottomMargin + Math.round(ViewCompat.getTranslationY(child));
             final int bottom = top + mSpanSpace;
@@ -96,6 +103,9 @@ public class LinearItemDecoration extends RecyclerView.ItemDecoration {
         final int childCount = parent.getChildCount();
         for (int i = 0; i < childCount; i++) {
             final View child = parent.getChildAt(i);
+            if ((parent.getChildViewHolder(child).getAdapterPosition()) < hasHeader) {
+                continue;
+            }
             final RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child.getLayoutParams();
             final int left = child.getRight() + params.rightMargin + Math.round(ViewCompat.getTranslationX(child));
             final int right = left + mSpanSpace;
@@ -116,6 +126,7 @@ public class LinearItemDecoration extends RecyclerView.ItemDecoration {
         private Resources mResources;
         private int mSpanSpace;
         private boolean mShowLastLine;
+        private int hasHeader;
         private int mLeftPadding;
         private int mRightPadding;
         private int mColor;
@@ -127,6 +138,7 @@ public class LinearItemDecoration extends RecyclerView.ItemDecoration {
             mLeftPadding = 0;
             mRightPadding = 0;
             mShowLastLine = false;
+            hasHeader = 0;
             mColor = Color.BLACK;
         }
 
@@ -221,12 +233,22 @@ public class LinearItemDecoration extends RecyclerView.ItemDecoration {
         }
 
         /**
+         * 是否有header
+         */
+        public Builder setHaseHeader(boolean hasHeader) {
+            if (hasHeader) {
+                this.hasHeader = 1;
+            }
+            return this;
+        }
+
+        /**
          * Instantiates a LinearItemDecoration with the specified parameters.
          *
          * @return a properly initialized LinearItemDecoration instance
          */
         public LinearItemDecoration build() {
-            return new LinearItemDecoration(mSpanSpace, mLeftPadding, mRightPadding, mColor, mShowLastLine);
+            return new LinearItemDecoration(mSpanSpace, mLeftPadding, mRightPadding, mColor, mShowLastLine, hasHeader);
         }
     }
 }

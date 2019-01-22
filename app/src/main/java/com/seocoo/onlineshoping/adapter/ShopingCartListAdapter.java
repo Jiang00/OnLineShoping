@@ -16,7 +16,7 @@ import com.seocoo.onlineshoping.bean.api.CommodityBean;
 import java.util.List;
 
 /**
- * desc   :
+ * desc   :购物车店铺列表
  * author : Jiang
  * date   : 2019/1/10
  */

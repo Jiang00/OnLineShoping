@@ -35,6 +35,9 @@ import java.util.Stack;
 
 import butterknife.BindView;
 
+/**
+ * 搜索店铺
+ */
 public class SearchStoreActivity extends BaseActivity<SearchStorePresenter> implements SearchStoreContract.View, Toolbar.ToolbarEditTextListener {
     @BindView(R.id.toolbar)
     Toolbar mToolbar;

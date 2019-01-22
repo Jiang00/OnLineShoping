@@ -10,6 +10,9 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:bar_background="@color/white_100"
+        app:bar_left_iv_resource="@mipmap/back_blue"
+        app:bar_left_tv_color="@color/color1"
         app:bar_right_tv_visible="false"
         app:is_edit="false" />
 
@@ -24,11 +27,11 @@
 
         <View
             android:id="@+id/view"
-            android:layout_width="@dimen/dp_0_5"
+            android:layout_width="@dimen/dp_1"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/dp_20"
-            android:layout_marginBottom="@dimen/dp_20"
-            android:background="@color/bar_grey"
+            android:layout_marginTop="@dimen/dp_15"
+            android:layout_marginBottom="@dimen/dp_15"
+            android:background="@color/backg_d"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias=".3"
@@ -40,7 +43,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="4.8"
-            android:textSize="@dimen/sp_24"
+            android:textColor="@color/text_star"
+            android:textSize="@dimen/sp_21"
             app:layout_constraintBottom_toTopOf="@+id/tv_store_score_m"
             app:layout_constraintEnd_toEndOf="@id/view"
             app:layout_constraintStart_toStartOf="parent"
@@ -52,6 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="商家评分"
+            android:textColor="@color/text9"
             android:textSize="@dimen/sp_12"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/tv_store_score"
@@ -71,7 +76,7 @@
             app:srb_numberOfStars="5"
             app:srb_rating="4.5"
             app:srb_starBackgroundColor="@color/cp_colorAccent"
-            app:srb_starSize="40dp"
+            app:srb_starSize="@dimen/dp_33"
             app:srb_stepSize="0.1" />
 
     </android.support.constraint.ConstraintLayout>
@@ -80,43 +85,55 @@
         android:id="@+id/view_2"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_8"
-        android:background="@color/colorAccent"
+        android:background="@color/backg2"
         app:layout_constraintTop_toBottomOf="@id/title" />
 
-    <Button
+    <TextView
         android:id="@+id/bt_score_all"
-        android:layout_width="@dimen/dp_70"
-        android:layout_height="@dimen/dp_36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_16"
         android:layout_marginTop="@dimen/dp_16"
-        android:background="@color/colorAccent"
+        android:background="@drawable/selector_rotate"
+        android:paddingLeft="@dimen/dp_9"
+        android:paddingTop="@dimen/dp_7"
+        android:paddingRight="@dimen/dp_9"
+        android:paddingBottom="@dimen/dp_7"
         android:text="全部222"
-        android:textColor="@color/white"
-        android:textSize="@dimen/sp_12"
+        android:textColor="@color/color1"
+        android:textSize="@dimen/sp_11"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view_2" />
 
-    <Button
+    <TextView
         android:id="@+id/bt_score_good"
-        android:layout_width="@dimen/dp_70"
-        android:layout_height="@dimen/dp_36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_16"
-        android:background="@color/colorAccent"
-        android:text="好评"
-        android:textColor="@color/white"
-        android:textSize="@dimen/sp_12"
+        android:background="@drawable/selector_rotate"
+        android:paddingLeft="@dimen/dp_9"
+        android:paddingTop="@dimen/dp_7"
+        android:paddingRight="@dimen/dp_9"
+        android:paddingBottom="@dimen/dp_7"
+        android:text="好评100"
+        android:textColor="@color/text9"
+        android:textSize="@dimen/sp_11"
         app:layout_constraintStart_toEndOf="@id/bt_score_all"
         app:layout_constraintTop_toTopOf="@id/bt_score_all" />
 
-    <Button
+    <TextView
         android:id="@+id/bt_score_bad"
         android:layout_width="@dimen/dp_70"
         android:layout_height="@dimen/dp_36"
         android:layout_marginStart="@dimen/dp_16"
-        android:background="@color/colorAccent"
-        android:text="差评"
-        android:textColor="@color/white"
-        android:textSize="@dimen/sp_12"
+        android:background="@drawable/selector_rotate"
+        android:paddingLeft="@dimen/dp_9"
+        android:paddingTop="@dimen/dp_7"
+        android:paddingRight="@dimen/dp_9"
+        android:paddingBottom="@dimen/dp_7"
+        android:text="差评100"
+        android:textColor="@color/text9"
+        android:textSize="@dimen/sp_11"
         app:layout_constraintStart_toEndOf="@id/bt_score_good"
         app:layout_constraintTop_toTopOf="@id/bt_score_good" />
 

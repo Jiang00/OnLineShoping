@@ -9,13 +9,16 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.seocoo.onlineshoping.R;
 import com.seocoo.onlineshoping.activity.MainActivity;
+import com.seocoo.onlineshoping.activity.OrderListActivity;
 import com.seocoo.onlineshoping.activity.SearchStoreActivity;
 import com.seocoo.onlineshoping.activity.ShopingCartActivity;
 import com.seocoo.onlineshoping.activity.StoreDetailsActivity;
@@ -50,7 +53,6 @@ import cn.bingoogolapple.bgabanner.BGALocalImageSize;
  * date   : 2019/1/8
  */
 public class StoreFragment extends BaseFragment<StorePresenter> implements StoreContract.View {
-    @BindView(R.id.store_banner)
     BGABanner mStoreBanner;
     @BindView(R.id.store__tool_bar)
     StoreToolbar mStoreToolBar;
@@ -58,6 +60,7 @@ public class StoreFragment extends BaseFragment<StorePresenter> implements Store
     FloatingActionButton mFABShopCart;
     @BindView(R.id.rv_nearbt_store)
     RecyclerView mStoreList;
+    private StoreAdapter storeAdapter;
 
     @Override
     protected int getLayoutId() {
@@ -71,6 +74,7 @@ public class StoreFragment extends BaseFragment<StorePresenter> implements Store
 
     @Override
     protected void initView(View view) {
+
         initListener();
     }
 
@@ -118,17 +122,27 @@ public class StoreFragment extends BaseFragment<StorePresenter> implements Store
         LinearItemDecoration linearItemDecoration = new LinearItemDecoration.Builder(getActivity())
                 .setColorResource(R.color.backg2)
                 .setSpan(R.dimen.dp_10)
+                .setHaseHeader(true)
                 .build();
         mStoreList.addItemDecoration(linearItemDecoration);
         mStoreList.setLayoutManager(new LinearLayoutManager(getActivity()));
-        StoreAdapter storeAdapter = new StoreAdapter(R.layout.layout_nearby_store_item, nearStoreEntities);
+        storeAdapter = new StoreAdapter(R.layout.layout_nearby_store_item, nearStoreEntities);
         mStoreList.setAdapter(storeAdapter);
+        View view = getLayoutInflater().inflate(R.layout.layout_recyc_header_near, null, false);
+        storeAdapter.addHeaderView(view);
     }
 
     @Override
     public void setBannerData(BGAEntity bannerData) {
+        if (bannerData.getImgs().size() == 0) {
+            return;
+        }
+        View viewBanner = getLayoutInflater().inflate(R.layout.layout_recyc_header_banner, null, false);
+        storeAdapter.addHeaderView(viewBanner, 0);
+        mStoreBanner = viewBanner.findViewById(R.id.store_banner);
         mStoreBanner.setDelegate((banner, itemView, model, position) -> {
-            showToast("点击" + position);
+//            showToast("点击" + position);
+//            startActivity(new Intent(getActivity(), OrderListActivity.class));
             startActivity(new Intent(getActivity(), StoreDetailsActivity.class));
         });
         mStoreBanner.setAutoPlayAble(bannerData.getImgs().size() > 1);
@@ -147,4 +161,6 @@ public class StoreFragment extends BaseFragment<StorePresenter> implements Store
         mStoreBanner.setData(views, bannerData.getImgs(), bannerData.getTips());
 
     }
+
+
 }

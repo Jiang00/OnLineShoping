@@ -3,6 +3,9 @@ package com.seocoo.onlineshoping.activity;
 import com.seocoo.onlineshoping.R;
 import com.seocoo.onlineshoping.base.ui.BaseActivity;
 
+/**
+ * 编辑收货地址
+ */
 public class EditReceiveAddressActivity extends BaseActivity {
 
     @Override

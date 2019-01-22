@@ -13,7 +13,7 @@ import com.seocoo.onlineshoping.bean.NearStoreEntity;
 import java.util.List;
 
 /**
- * desc   :
+ * desc   :店铺列表
  * author : Jiang
  * date   : 2019/1/10
  */

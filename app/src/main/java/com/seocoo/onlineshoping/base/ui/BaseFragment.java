@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,12 +47,19 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
     @Inject
     protected T mPresenter;
     protected Context mContext;
+    protected View cacheView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(getLayoutId(), container, false);
-        unBinder = ButterKnife.bind(this, view);
+        if (cacheView == null) {
+            cacheView = inflater.inflate(getLayoutId(), container, false);
+        }
+        ViewGroup parent = (ViewGroup) cacheView.getParent();
+        if (parent != null) {
+            parent.removeView(cacheView);
+        }
+        unBinder = ButterKnife.bind(this, cacheView);
         mContext = getContext();
         if (isImmersionBarEnabled()) {
             initImmersionBar();
@@ -60,8 +68,8 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
                 .applicationComponent(BaseApp.getInstance().getApplicationComponent())
                 .build();
         fragmentInject();
-        initView(view);
-        return view;
+        initView(cacheView);
+        return cacheView;
     }
 
     @Override
@@ -72,6 +80,9 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
             mPresenter.attachView(this);
         }
         initEvent();
+        if (getUserVisibleHint()) {
+            lazyLoadData();
+        }
     }
 
     /**
@@ -110,6 +121,14 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment imp
      */
     protected boolean isImmersionBarEnabled() {
         return true;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (null != cacheView) {
+            ((ViewGroup) cacheView.getParent()).removeView(cacheView);
+        }
     }
 
     @Override

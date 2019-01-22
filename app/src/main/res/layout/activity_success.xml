@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SuccessActivity">
+
+    <com.seocoo.onlineshoping.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bar_background="@color/white_100"
+        app:bar_left_iv_resource="@mipmap/back_blue"
+        app:bar_left_tv_color="@color/color1"
+        app:bar_mid_tv_text="@string/success_title"
+        app:bar_right_tv_visible="false"
+        app:is_edit="false" />
+
+    <ImageView
+        android:id="@+id/iv_status"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="@dimen/dp_60"
+        android:layout_marginTop="@dimen/dp_40"
+        android:src="@mipmap/order_failure"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/tv_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_30"
+        android:text="@string/success_money1"
+        android:textColor="@color/text3"
+        android:textSize="@dimen/sp_18"
+        app:layout_constraintEnd_toEndOf="@id/iv_status"
+        app:layout_constraintStart_toStartOf="@id/iv_status"
+        app:layout_constraintTop_toBottomOf="@+id/iv_status" />
+
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_7"
+        android:text="@string/success_money2"
+        android:textColor="@color/text9"
+        android:textSize="@dimen/sp_15"
+        app:layout_constraintEnd_toEndOf="@id/iv_status"
+        app:layout_constraintStart_toStartOf="@id/iv_status"
+        app:layout_constraintTop_toBottomOf="@+id/tv_money" />
+
+    <Button
+        android:id="@+id/bt_order"
+        android:layout_width="@dimen/dp_180"
+        android:layout_height="@dimen/dp_45"
+        android:layout_marginTop="@dimen/dp_40"
+        android:layout_marginBottom="@dimen/dp_30"
+        android:background="@drawable/shape_color1_stroke"
+        android:text="@string/success_order_retry"
+        android:textColor="@color/color1"
+        android:textSize="@dimen/sp_17"
+        app:layout_constraintEnd_toEndOf="@id/iv_status"
+        app:layout_constraintStart_toStartOf="@id/iv_status"
+        app:layout_constraintTop_toBottomOf="@+id/tv_msg" />
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_35"
+        android:background="@color/color_f2"
+        app:layout_constraintEnd_toEndOf="@id/iv_status"
+        app:layout_constraintStart_toStartOf="@id/iv_status"
+        app:layout_constraintTop_toBottomOf="@+id/bt_order" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/line1" />
+
+
+</android.support.constraint.ConstraintLayout>

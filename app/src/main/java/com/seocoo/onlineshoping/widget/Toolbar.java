@@ -226,6 +226,7 @@ public class Toolbar extends ConstraintLayout implements View.OnClickListener, T
                 searchClick();
                 break;
             case R.id.tv_toolbar_right:
+                clearEditText();
                 if (rightClickListener != null) {
                     rightClickListener.rightClickListener();
                     return;
@@ -297,6 +298,20 @@ public class Toolbar extends ConstraintLayout implements View.OnClickListener, T
         etMiddle.requestFocus();
     }
 
+    /**
+     * 取消焦点
+     */
+    public void clearEditFocus() {
+        etMiddle.clearFocus();
+    }
+
+    /**
+     * 清空输入的文字
+     */
+    public void clearEditText() {
+        etMiddle.setText("");
+    }
+
     @Override
     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -335,15 +350,15 @@ public class Toolbar extends ConstraintLayout implements View.OnClickListener, T
      * 搜索
      */
     private void searchClick() {
-        etMiddle.clearFocus();
+        String string = etMiddle.getText().toString();
+        if (StringUtils.isEmpty(string)) {
+            string = etMiddle.getHint().toString();
+        }
+        if (StringUtils.isEmpty(string)) {
+            return;
+        }
+        clearEditFocus();
         if (editTextListener != null) {
-            String string = etMiddle.getText().toString();
-            if (StringUtils.isEmpty(string)) {
-                string = etMiddle.getHint().toString();
-            }
-            if (StringUtils.isEmpty(string)) {
-                return;
-            }
             editTextListener.clickSearch(string);
         }
     }
@@ -372,7 +387,6 @@ public class Toolbar extends ConstraintLayout implements View.OnClickListener, T
             if (imm.isActive()) {
                 imm.hideSoftInputFromWindow(etMiddle.getWindowToken(), 0);
             }
-
         }
     }
 

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.OrderListActivity">
+
+    <com.seocoo.onlineshoping.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:bar_background="@color/white_100"
+        app:bar_left_iv_resource="@mipmap/back_blue"
+        app:bar_left_tv_color="@color/color1"
+        app:bar_left_tv_text="@string/back"
+        app:bar_mid_tv_text="@string/order_title"
+        app:bar_right_tv_visible="false"
+        app:is_edit="false" />
+
+    <com.flyco.tablayout.CommonTabLayout
+        android:id="@+id/tab_order"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:background="@color/color1"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:tl_iconVisible="false"
+        app:tl_indicator_color="@color/white_100"
+        app:tl_indicator_corner_radius="@dimen/dp_1"
+        app:tl_indicator_height="@dimen/dp_2"
+        app:tl_indicator_margin_bottom="@dimen/dp_7"
+        app:tl_indicator_width="@dimen/dp_51"
+        app:tl_textSelectColor="@color/white_100"
+        app:tl_textUnselectColor="@color/white_100"
+        app:tl_textsize="@dimen/sp_13" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab_order" />
+
+</android.support.constraint.ConstraintLayout>

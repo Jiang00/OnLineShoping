@@ -12,7 +12,7 @@ import com.zhy.view.flowlayout.TagAdapter;
 import java.util.List;
 
 /**
- * desc   :
+ * desc   :搜索流式布局适配器
  * author : Jiang
  * date   : 2019/1/16
  */

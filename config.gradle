@@ -86,6 +86,8 @@ ext {
             //流式布局
             flowlayout              : 'com.hyman:flowlayout-lib:1.1.2',
             //高斯模糊
-            transformations         : 'jp.wasabeef:glide-transformations:4.0.1'
+            transformations         : 'jp.wasabeef:glide-transformations:4.0.1',
+            //底部弹窗
+            bottomsheet             : 'com.flipboard:bottomsheet-core:1.5.3'
     ]
 }

@@ -17,6 +17,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".activity.MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
             android:theme="@style/DefaultCityPickerTheme"
             android:windowSoftInputMode="adjustUnspecified|stateHidden">
             <intent-filter>
@@ -38,7 +39,9 @@
         <activity android:name=".activity.CommodityDetailsActivity" />
         <activity
             android:name=".activity.SearchStoreActivity"
-            android:windowSoftInputMode="stateVisible|adjustUnspecified"></activity>
+            android:windowSoftInputMode="stateVisible|adjustUnspecified" />
+        <activity android:name=".activity.SuccessActivity" />
+        <activity android:name=".activity.OrderListActivity"></activity>
     </application>
 
 </manifest>

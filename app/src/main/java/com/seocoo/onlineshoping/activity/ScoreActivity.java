@@ -14,6 +14,9 @@ import java.util.List;
 
 import butterknife.BindView;
 
+/**
+ * 评价页
+ */
 public class ScoreActivity extends BaseActivity {
     @BindView(R.id.rv_score_list)
     RecyclerView mScoreList;

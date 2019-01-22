@@ -1,25 +1,23 @@
 package com.seocoo.onlineshoping.activity;
 
-import android.support.design.widget.AppBarLayout;
-import android.support.v4.widget.NestedScrollView;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.seocoo.onlineshoping.R;
 import com.seocoo.onlineshoping.adapter.ShopingCartListAdapter;
 import com.seocoo.onlineshoping.base.ui.BaseActivity;
 import com.seocoo.onlineshoping.bean.ShopingCartEntity;
 import com.seocoo.onlineshoping.bean.api.CommodityBean;
+import com.seocoo.onlineshoping.widget.LinearItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 
+/**
+ * 购物车
+ */
 public class ShopingCartActivity extends BaseActivity {
     @BindView(R.id.rl_shopcart)
     RecyclerView mShopCart;
@@ -46,7 +44,12 @@ public class ShopingCartActivity extends BaseActivity {
             shopingCartEntity.setName(i + "aa");
             shopingCartEntities.add(shopingCartEntity);
         }
-
+        LinearItemDecoration linearItemDecoration = new LinearItemDecoration.Builder(this)
+                .setSpan(R.dimen.dp_10)
+                .setColorResource(R.color.color_f2)
+                .setShowLastLine(true)
+                .build();
+        mShopCart.addItemDecoration(linearItemDecoration);
         mShopCart.setLayoutManager(new LinearLayoutManager(this));
         ShopingCartListAdapter adapter = new ShopingCartListAdapter(R.layout.layout_shoping_cart_list_item, shopingCartEntities);
         mShopCart.setAdapter(adapter);

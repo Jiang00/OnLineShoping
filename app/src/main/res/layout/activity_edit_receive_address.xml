@@ -2,26 +2,37 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/color_f2">
 
     <com.seocoo.onlineshoping.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:is_edit="false" />
+        app:bar_background="@color/white_100"
+        app:bar_left_iv_resource="@mipmap/back_blue"
+        app:bar_left_tv_color="@color/color1"
+        app:bar_left_tv_text="@string/back"
+        app:bar_mid_tv_text="@string/title_edit_address"
+        app:bar_right_tv_visible="false"
+        app:is_edit="false"
+        app:line_color="@color/backg_e8" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/cl_contact"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_40"
+        android:layout_height="@dimen/dp_45"
+        android:background="@color/white_100"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <TextView
             android:id="@+id/tv_contact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_8"
+            android:layout_marginStart="@dimen/dp_15"
             android:text="联系人"
+            android:textColor="@color/text3"
+            android:textSize="@dimen/sp_13"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -30,13 +41,15 @@
             android:id="@+id/et_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_80"
+            android:layout_marginStart="@dimen/dp_90"
             android:layout_marginEnd="@dimen/dp_16"
             android:background="@null"
             android:gravity="center_vertical"
+            android:hint="@string/delivery_shipper_hint"
             android:lines="1"
-            android:text="合肥市庐阳区"
-            android:textSize="@dimen/sp_16"
+            android:textColor="@color/text3"
+            android:textColorHint="@color/text9"
+            android:textSize="@dimen/sp_13"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,9 +57,9 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_0_5"
-            android:layout_marginStart="@dimen/dp_80"
-            android:background="@color/color_4d"
+            android:layout_height="@dimen/dp_1"
+            android:layout_marginStart="@dimen/dp_90"
+            android:background="@color/backg_e8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </android.support.constraint.ConstraintLayout>
@@ -54,45 +67,47 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/cl_check"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_40"
+        android:layout_height="@dimen/dp_45"
+        android:background="@color/white_100"
         app:layout_constraintTop_toBottomOf="@+id/cl_contact">
 
         <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_80"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <RadioButton
-
-                android:layout_width="@dimen/dp_45"
-                android:layout_height="@dimen/dp_20"
+                android:layout_width="@dimen/dp_52"
+                android:layout_height="@dimen/dp_23"
+                android:layout_marginStart="@dimen/dp_90"
                 android:background="@drawable/selector_check"
                 android:button="@null"
                 android:checked="true"
                 android:gravity="center"
                 android:text="先生"
-                android:textColor="@color/white" />
+                android:textColor="@drawable/selector_check_text"
+                android:textSize="@dimen/sp_13" />
 
             <RadioButton
                 android:id="@+id/a"
-                android:layout_width="@dimen/dp_45"
-                android:layout_height="@dimen/dp_20"
-                android:layout_marginStart="@dimen/dp_20"
+                android:layout_width="@dimen/dp_52"
+                android:layout_height="@dimen/dp_23"
+                android:layout_marginStart="@dimen/dp_8"
                 android:background="@drawable/selector_check"
                 android:button="@null"
                 android:gravity="center"
                 android:text="女士"
-                android:textColor="@color/white" />
+                android:textColor="@drawable/selector_check_text" />
         </RadioGroup>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_0_5"
-            android:background="@color/color_4d"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/backg_e8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </android.support.constraint.ConstraintLayout>
@@ -100,15 +115,18 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/cl_tel"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_40"
+        android:layout_height="@dimen/dp_45"
+        android:background="@color/white_100"
         app:layout_constraintTop_toBottomOf="@+id/cl_check">
 
         <TextView
             android:id="@+id/tv_tel_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_8"
+            android:layout_marginStart="@dimen/dp_15"
             android:text="手机号"
+            android:textColor="@color/text3"
+            android:textSize="@dimen/sp_13"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -117,13 +135,15 @@
             android:id="@+id/et_tel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_80"
+            android:layout_marginStart="@dimen/dp_90"
             android:layout_marginEnd="@dimen/dp_16"
             android:background="@null"
             android:gravity="center_vertical"
-            android:hint="请输入"
+            android:hint="@string/delivery_tel_hint"
             android:lines="1"
-            android:textSize="@dimen/sp_16"
+            android:textColor="@color/text3"
+            android:textColorHint="@color/text9"
+            android:textSize="@dimen/sp_13"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -131,8 +151,8 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_0_5"
-            android:background="@color/color_4d"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/backg_e8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </android.support.constraint.ConstraintLayout>
@@ -140,15 +160,19 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/cl_address"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_40"
+
+        android:layout_height="@dimen/dp_45"
+        android:background="@color/white_100"
         app:layout_constraintTop_toBottomOf="@+id/cl_tel">
 
         <TextView
             android:id="@+id/tv_address_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_8"
+            android:layout_marginStart="@dimen/dp_15"
             android:text="地址"
+            android:textColor="@color/text3"
+            android:textSize="@dimen/sp_13"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -157,30 +181,31 @@
             android:id="@+id/tv_address"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/dp_80"
+            android:layout_marginStart="@dimen/dp_90"
             android:layout_marginEnd="@dimen/dp_16"
             android:background="@null"
             android:gravity="center_vertical"
-            android:hint="请选择"
-            android:textSize="@dimen/sp_16"
+            android:text="请选择"
+            android:textColor="@color/text9"
+            android:textSize="@dimen/sp_13"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:layout_width="@dimen/dp_20"
-            android:layout_height="@dimen/dp_20"
-            android:layout_marginEnd="@dimen/dp_8"
-            android:src="@mipmap/ic_launcher"
+            android:layout_width="@dimen/dp_13"
+            android:layout_height="@dimen/dp_13"
+            android:layout_marginEnd="@dimen/dp_15"
+            android:src="@mipmap/right_in"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_0_5"
-            android:background="@color/color_4d"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/backg_e8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </android.support.constraint.ConstraintLayout>
@@ -188,15 +213,18 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/cl_detail_address"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_40"
+        android:layout_height="@dimen/dp_45"
+        android:background="@color/white_100"
         app:layout_constraintTop_toBottomOf="@+id/cl_address">
 
         <TextView
             android:id="@+id/tv_detail_address_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_8"
+            android:layout_marginStart="@dimen/dp_15"
             android:text="详细地址"
+            android:textColor="@color/text3"
+            android:textSize="@dimen/sp_13"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -205,13 +233,15 @@
             android:id="@+id/et_address"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_80"
+            android:layout_marginStart="@dimen/dp_90"
             android:layout_marginEnd="@dimen/dp_16"
             android:background="@null"
             android:gravity="center_vertical"
             android:hint="如道路门牌号"
             android:lines="1"
-            android:textSize="@dimen/sp_16"
+            android:textColor="@color/text3"
+            android:textColorHint="@color/text9"
+            android:textSize="@dimen/sp_13"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -219,8 +249,8 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_0_5"
-            android:background="@color/color_4d"
+            android:layout_height="@dimen/dp_1"
+            android:background="@color/backg_e8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </android.support.constraint.ConstraintLayout>
@@ -228,60 +258,79 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/cl_label"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_40"
+        android:layout_height="@dimen/dp_45"
+        android:background="@color/white_100"
         app:layout_constraintTop_toBottomOf="@+id/cl_detail_address">
 
         <TextView
             android:id="@+id/tv_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_8"
+            android:layout_marginStart="@dimen/dp_15"
             android:text="标签"
+            android:textColor="@color/text3"
+            android:textSize="@dimen/sp_13"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <RadioGroup
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_80"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp_90"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <RadioButton
-                android:layout_width="@dimen/dp_45"
-                android:layout_height="@dimen/dp_20"
+                android:layout_width="@dimen/dp_52"
+                android:layout_height="@dimen/dp_23"
                 android:background="@drawable/selector_check"
                 android:button="@null"
                 android:checked="true"
                 android:gravity="center"
                 android:text="家"
-                android:textColor="@color/white" />
+                android:textColor="@drawable/selector_check_text"
+                android:textSize="@dimen/sp_13" />
 
             <RadioButton
-                android:layout_width="@dimen/dp_45"
-                android:layout_height="@dimen/dp_20"
+                android:layout_width="@dimen/dp_52"
+                android:layout_height="@dimen/dp_23"
                 android:layout_marginStart="@dimen/dp_20"
                 android:background="@drawable/selector_check"
                 android:button="@null"
                 android:gravity="center"
                 android:text="公司"
-                android:textColor="@color/white" />
+                android:textColor="@drawable/selector_check_text"
+                android:textSize="@dimen/sp_13" />
         </RadioGroup>
 
     </android.support.constraint.ConstraintLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/white_100"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dp_15"
+        android:text="@string/address_remove"
+        android:textColor="@color/text_star"
+        android:textSize="@dimen/dp_15"
+        app:layout_constraintTop_toBottomOf="@+id/cl_label" />
+
     <Button
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/dp_45"
         android:layout_marginStart="@dimen/dp_16"
         android:layout_marginEnd="@dimen/dp_16"
         android:layout_marginBottom="@dimen/dp_40"
-        android:background="@drawable/shape_check"
+        android:background="@drawable/shape_color1_3"
         android:text="保存"
-        android:textColor="@color/white"
+        android:textColor="@color/white_100"
+        android:textSize="@dimen/sp_17"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
